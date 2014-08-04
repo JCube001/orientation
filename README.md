@@ -10,15 +10,13 @@ IMU or AHRS system on an embedded device.
 The following is the message format to use when communicating from an embedded
 device to this application. The numbers represent the byte offsets.
 
-0      1        5   9   13  17     19
-+------+--------+---+---+---+------+
-| 0x55 | Scalar | X | Y | Z | CRLF |
-+------+--------+---+---+---+------+
+| Header | Scalar | X     | Y     | Z     | Footer |
+|--------|--------|-------|-------|-------|--------|
+| 0x55   | Float  | Float | Float | Float | "\r\n" |
 
-The value 0x55 is the header of each message. The CRFL ("\r\n") is the footer
-of each message. Scalar is the scalar component of the quaternion as a binary
-float. The X, Y, and Z values are all binary floats and they make up the
-vector part of the quaternion. Note that you may have to reverse the byte
-endianness of each float as you send them over serial so they can be
-reconstructed correctly in this application.
-
+The value 0x55 is the header of each message. The "\r\n" is the footer of each
+message. Scalar is the scalar component of the quaternion as a binary float.
+The X, Y, and Z values are all binary floats and they make up the vector part
+of the quaternion. Note that you may have to reverse the byte endianness of
+each float as you send them over serial so they can be reconstructed correctly
+in this application.
