@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>vbox.glsl</file>
+        <file>fbox.glsl</file>
+    </qresource>
+</RCC>
