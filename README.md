@@ -17,6 +17,5 @@ device to this application. The numbers represent the byte offsets.
 The value 0x55 is the header of each message. The "\r\n" is the footer of each
 message. Scalar is the scalar component of the quaternion as a binary float.
 The X, Y, and Z values are all binary floats and they make up the vector part
-of the quaternion. Note that you may have to reverse the byte endianness of
-each float as you send them over serial so they can be reconstructed correctly
-in this application.
+of the quaternion. Note that this application expects all floats to be IEEE
+floats transmitted in little endian byte order.
